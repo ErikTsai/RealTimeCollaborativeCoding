@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils"; // Utility from shadcn
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Real-Time Collaborative Editor",
-  description: "Code with Friends!",
+  title: "Simple Collab Editor",
+  description: "Real-time collaborative code editing",
 };
 
 export default function RootLayout({
@@ -23,11 +16,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable
+        )}
       >
-        {children}
+        {/* You could add a global header/navbar here if needed */}
+        <main className="flex min-h-screen flex-col items-center justify-center p-4">
+          {children}
+        </main>
+        {/* You could add a global footer here */}
       </body>
     </html>
   );
