@@ -30,7 +30,7 @@ export default function UserPresence({
   currentUsername,
 }: UserPresenceProps) {
   return (
-    <Card className="w-full h-full">
+    <Card className="w-full h-94/100">
       {" "}
       {/* Adjust width/height as needed */}
       <CardHeader>

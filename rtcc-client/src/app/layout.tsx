@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils"; // Utility from shadcn
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Simple Collab Editor",
-  description: "Real-time collaborative code editing",
+  title: "Real-Time Collaborative Code Editor",
+  description: "Code with friends in real-time!",
 };
 
 export default function RootLayout({
@@ -23,11 +24,10 @@ export default function RootLayout({
           inter.variable
         )}
       >
-        {/* You could add a global header/navbar here if needed */}
-        <main className="flex min-h-screen flex-col items-center justify-center p-4">
+        <Navbar />
+        <main className="flex min-h-screen flex-col items-center justify-center p-4 pt-14">
           {children}
         </main>
-        {/* You could add a global footer here */}
       </body>
     </html>
   );

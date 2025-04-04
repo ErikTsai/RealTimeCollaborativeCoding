@@ -1,7 +1,7 @@
-"use client"; // Required for useState, localStorage, event handlers
+"use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation"; // Use App Router's navigation
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,21 +13,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { generateRoomId } from "@/lib/roomUtils"; // Assuming you created this helper
+import { generateRoomId } from "@/lib/roomUtils";
 
 export default function HomePage() {
   const [username, setUsername] = useState("");
   const [roomIdToJoin, setRoomIdToJoin] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-
-  // Optional: Load username from localStorage if previously set
-  useEffect(() => {
-    const savedUsername = localStorage.getItem("editorUsername");
-    if (savedUsername) {
-      setUsername(savedUsername);
-    }
-  }, []);
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
@@ -78,9 +70,9 @@ export default function HomePage() {
   };
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full max-w-md -translate-y-7">
       <CardHeader>
-        <CardTitle>Collaborative Code Editor</CardTitle>
+        <CardTitle>Real-Time Collaborative Code Editor</CardTitle>
         <CardDescription>
           Enter your name and join or create a coding room.
         </CardDescription>
